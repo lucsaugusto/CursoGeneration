@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <title>Contando Imagens</title>
+</head>
+<body>
+
+<p><b>Vincent van Gogh (1853 - 1890)</b></p>
+
+<table>
+	<tr>
+		<td>
+			<figure>
+				<img src="https://www.arlestourisme.com/en/assets/img/bandeau/van_gogh_cafe.jpg" alt="Terraço do Café à Noite, 1888" width="360" height="200">	
+				<figcaption>Terraço do Café à Noite, 1888</figcaption>
+			</figure>
+		</td>
+		<td>
+			<figure>
+				<img src="https://www.causaoperaria.org.br/wp-content/uploads/2019/03/van-gogh-1024x585.jpg" alt="Autorretrato, 1889" width="360" height="200">	
+				<figcaption>Autorretrato, 1889</figcaption>
+			</figure>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<figure>
+			<img src="https://www.gazetadopovo.com.br/haus/wp-content/uploads/2016/07/starry-night-1093721-1002x564.jpg" alt="A Noite Estrelada, 1889." width="360" height="200">	
+			<figcaption>A Noite Estrelada, 1889.</figcaption>
+			</figure>
+		</td>
+		<td>
+			<figure>
+			  <img src="https://imagenes.universia.net/gc/net/images/cultura/v/va/van/van-gogh-amendoeira-em-flor-noticias.jpg" alt="Amendoeira em Flor, 1890" width="360" height="200">	
+			  <figcaption>Amendoeira em Flor, 1890</figcaption>
+			</figure>
+		</td>
+    </tr>
+    <tr>
+		<td>
+			<figure>
+				<img src="https://news.photoarts.com.br/wp-content/uploads/2018/04/Wheatfield_with_crows-crop900x700.jpg" alt="Campo de Trigo com Corvos, 1890" width="360" height="200">	
+				<figcaption>Campo de Trigo com Corvos, 1890</figcaption>
+			</figure>
+		</td>
+		<td>
+			<figure>
+				<img src="https://ichef.bbci.co.uk/news/624/cpsprodpb/00B0/production/_104967100_van-gogh-cuarto.jpg" alt="Quarto em Arles, 1889" width="360" height="200">	
+				<figcaption>Quarto em Arles, 1889</figcaption>
+			</figure>
+		</td>
+    </tr>
+<table>
+
+<p id="demo"></p>
+<button onclick="contandoImagens()">Contar</button>
+
+<script>
+function contandoImagens() {
+  var x = document.images.length;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+
+</body>
+</html>

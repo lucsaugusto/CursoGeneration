@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+ 
+<input id="nome" type="text" name="nome" value="" placeholder="Seu Nome" />
+ 
+<button onclick="pegarNome()">Ok</button>
+
+<p id="resposta">nome: </p>
+ 
+<script>
+function pegarNome() {
+  //Pega o valor do input 
+  var x = document.getElementById("nome").value;
+  
+  //Injeta o valor no paragrafo com id 'resposta'
+  document.getElementById("resposta").innerHTML += x;
+}
+</script>
+ 
+</body>
+</html>

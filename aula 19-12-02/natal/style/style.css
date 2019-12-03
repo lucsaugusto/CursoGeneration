@@ -1,0 +1,39 @@
+audio{
+    box-shadow: 5px 5px 5px black;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    width: 250px;
+    padding: 15px;
+    background-color: green;
+}
+h1, h3{
+    text-shadow: 1px 1px 2px black, 5px 5px 3px black;
+    color: yellow;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    border: 2px;
+    background-color: red;
+    box-shadow: 5px 5px 5px black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    width: 250px;
+    padding: 15px;
+    margin-bottom: 0px;
+}
+
+h2{
+    text-shadow: 1px 1px 2px black, 5px 5px 3px black;
+    color: green;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    box-shadow: 5px 5px 5px black;
+    padding: 15px;
+    margin-top: 0px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    width: 500px;
+    background-color: white
+}
+h1{
+    padding: 15px;
+    margin-bottom: 0px;
+    width: 500px;
+}

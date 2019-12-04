@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="script/script.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+
+    <title>User</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row nav">
+            <div class="col-4 nav" style="align-items:center; ">
+                <img src="https://budgetpainters.ca/wp-content/uploads/2018/10/user.png" alt="" width="40px" height="40px">
+            </div>
+            <div class="col-8 nav">
+                <input id="inputBox" type="text" placeholder=" Type your user code">
+                <button id="submit" type="submit" onclick="searchComment()">Procurar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 aside">
+
+            </div>
+            <div class="col-8">
+                <tr>
+                    <td>PostId : <span id="postId"></span></td></br>
+                    <td>Id: <span id="id"></span></td></br>
+                    <td>Name : <span id="name"></span></td></br>
+                    <td>Email : <span id="email"></span></td></br>
+                    <td>Comment : <span id="body"></span></td></br>
+                </tr>
+            </div>
+            <div class="col-2 aside">
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

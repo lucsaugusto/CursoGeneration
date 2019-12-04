@@ -1,0 +1,28 @@
+body{
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font: bold;
+}
+.aside{
+    background-color: black;
+    border: 1px black;
+}
+.nav{
+    background-color: rgb(10, 100, 200);
+    height: 50px;
+    align-items: center;
+}
+#inputBox{
+    width: 300px;
+    height: 40px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-style: none;
+}
+#submit{
+    height: 40px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-style: none;
+    background-color: aquamarine;
+    color: black;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="textId" type="number" placeholder="Selecione um numero">
+    <input type="button" value="Localizar" onclick="searchComment()">
+
+    <p id="textError"></p>
+
+    <div>
+        <h1>Informações sobre Comentarios</h1>
+
+        Usuario Id <h5 id="userId"></h5>
+        Id <h5 id="id"></h5>
+        Titulo <h5 id="title"></h5>
+        Completo <h5 id="completed"></h5>
+
+    </div>
+
+</body>
+
+<script>
+
+    
+    function searchComment() {
+        var idComment = document.getElementById("textId").value;
+
+        if (idComment <= 0) {
+            document.getElementById("textError").innerHTML = "Você precisa selecionar um numero mair que 0";
+        } else {
+            getComment(idComment);
+            document.getElementById("textError").innerHTML = "";
+        }
+    }
+
+    function getComment(id) {
+
+        //fetch metodo para consumo de serviços de api
+        fetch(`https://jsonplaceholder.typicode.com/todos/${id}`, {method: 'GET'})
+            .then(response => response.json()) //converte valor recebido em objeto json
+            .then(json => passJson(json)) //chamando a função passJson e passando o objeto
+    }
+
+    function passJson(json) {
+
+        //Manipulando o DOM para renderizar os objetos 'acessando valores do objeto'
+        document.getElementById("userId").innerHTML = json.userId;
+        document.getElementById("id").innerHTML = json.id;
+        document.getElementById("title").innerHTML = json.title;
+        document.getElementById("completed").innerHTML = json.completed;
+
+    }
+
+
+
+</script>
+
+</html>

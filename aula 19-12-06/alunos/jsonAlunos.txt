@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "Nome": "Lucas",
+  "Sobrenome": "Capelotto",
+  "Idade": 26,
+  "Nota": 5,
+  "Situacao": "Aprovado"
+}

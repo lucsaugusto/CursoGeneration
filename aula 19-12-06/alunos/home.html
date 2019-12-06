@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        .row.content {
+            height: 450px
+        }
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+
+    </style>
+    <script>
+
+    </script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Instituto brasileiro de Educação Inovador</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li class="active"><a href="#">Notas de Matemática</a></li>
+                    <li><a href="#">Projeto</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-2 sidenav">
+                <li><a href="#">Home</a></li>
+                <li class="active"><a href="#">Notas de Matemática</a></li>
+                <li><a href="#">Projeto</a></li>
+                <li><a href="#">Contato</a></li>
+            </div>
+            <div class="col-sm-8 text-left">
+                <h1>Notas de Matemática</h1></br>
+                <input type="number" id="textId">
+                <input type="button" value="Localizar" onclick="searchAluno()">
+                <input type="button" value="Localizar Todos (Grid)" onclick="getAll()">
+                <div class="row content">
+                    <div id="divDetail" style="display: none; float: left;">
+                        <label class="fildName"> Nome:</label><label id="Nome"></label> <br />
+                        <label class="fildName"> Sobrenome:</label><label id="Sobrenome"></label> <br />
+                        <label class="fildName"> Idade:</label><label id="Idade"></label> <br />
+                        <label class="fildName"> Média:</label><label id="Nota"></label> <br />
+                        <label class="fildName"> Situação:</label><label id="Situacao"></label>
+                    </div>
+                    <div id="divGif" style="display: none;position: absolute; top: 30%; left:10%">
+                        <img src="giphy.gif" />
+                    </div>
+
+                    <div id="divTable" style="display: none;float: left;">
+                        <table id="tblAlunos">
+                            <tr>
+                                <th>Nome:</th>
+                                <th>Sobrenome:</th>
+                                <th>Idade:</th>
+                                <th>Média:</th>
+                                <th>Situação:</th>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2 sidenav">
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function searchAluno() {
+            var idAluno = document.getElementById("textId").value;
+
+            if (idAluno <= 0) {
+                document.getElementById("textError").innerHTML = "Você precisa selecionar um numero mair que 0";
+            } else {
+                getAluno(idAluno);
+                document.getElementById("textError").innerHTML = "";
+            }
+        }
+
+        function getAluno(id) {
+            document.getElementById("divGif").style.display = "";
+            reset();
+            //fatch metodo para consumo de serviços de api
+            fetch(`http://localhost:3000/alunos/notas/matematica/${id}`, {
+                method: 'GET'
+            })
+                .then(response => response.json()) //converte valor recebido em objeto json
+                .then(json => passJson(json)) //chamando a função passJson e passando o objeto
+        }
+
+        function getAll() {
+            reset();
+            document.getElementById("divGif").style.display = "";
+            //fatch metodo para consumo de serviços de api
+            fetch(`http://localhost:3000/alunos/notas/matematica/`, {
+                method: 'GET'
+            })
+                .then(response => response.json()) //converte valor recebido em objeto json
+                .then(json => passJsonMakeTable(json)) //chamando a função passJson e passando o objeto
+        }
+
+        function reset() {
+            document.getElementById("divDetail").style.display = "none";
+            document.getElementById("divTable").style.display = "none";
+        }
+
+        function passJson(json) {
+
+            //Manipulando o DOM para renderizar os objetos 'acessando valores do objeto'
+            document.getElementById("Nome").innerHTML = json.Nome;
+            document.getElementById("Sobrenome").innerHTML = json.Sobrenome;
+            document.getElementById("Idade").innerHTML = json.Idade;
+            document.getElementById("Nota").innerHTML = json.Nota;
+            document.getElementById("Situacao").innerHTML = json.Situacao;
+
+            document.getElementById("divDetail").style.display = "";
+            document.getElementById("divGif").style.display = "none";
+        }
+
+        function passJsonMakeTable(json) {
+
+            var table = document.getElementById("tblAlunos");
+            document.getElementById("divTable").style.display = "";
+
+            for (let i = 0; i < json.length; i++) {
+                const element = json[i];
+                table.innerHTML += `<tr>
+                    <td>${json[i].Nome}</td>
+                    <td>${json[i].Sobrenome}</td>
+                    <td>${json[i].Idade}</td>
+                    <td>${json[i].Nota}</td>
+                    <td>${json[i].Situacao}</td>
+                </tr>`;
+            }
+
+            document.getElementById("divGif").style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

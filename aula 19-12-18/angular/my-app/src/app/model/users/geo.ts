@@ -1,0 +1,8 @@
+import { Address } from './address';
+
+export class Geo{
+    constructor(
+        public lat: string,
+        public lng: string
+    ){}
+}

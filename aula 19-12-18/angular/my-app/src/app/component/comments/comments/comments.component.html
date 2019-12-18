@@ -1,0 +1,50 @@
+<div class="container col-4 mt-5">
+        <div class="input-group mb-5">
+            <input id="txtPostId" type="number" [(ngModel)]="id" class="form-control" placeholder="Digite o id"
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary bg-dark text-light" type="button" id="button-addon2"
+                    (click)="btnClick()">Consultar</button>
+            </div>
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary bg-dark text-light" type="button" id="button-addon3"
+                (click)="btnCommentsClick()" (click)="idNull()">Consultar todos</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container col-10 mb-5 " *ngIf="id == null">
+        <div class="card border-danger m-3" style="max-width: 80rem;" *ngFor="let comment of comments">
+            <div class="card-header text-info bg-danger">
+                <h2 class="font-weight-bold text-light">Comment {{comment.id}}</h2>
+            </div>
+            <div class="card-body text-info">
+                <h5 class="card-title text-danger">Post Id: <span class="text-secondary">{{comment.postId}}</span></h5>
+                <h5 class="card-title text-danger">Id: <span class="text-secondary">{{comment.id}}</span></h5>
+                <h5 class="card-title text-danger">Name: <span class="text-secondary">{{comment.name}}</span></h5>
+                <h5 class="card-title text-danger">Email: <span class="text-secondary">{{comment.email}}</span></h5>
+                <h5 class="card-title text-danger">Body: <span class="text-secondary">{{comment.body}}</span></h5>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container col-8 mb-5" *ngIf="id > 0 && show == true">
+            <div class="card border-danger m-3" style="max-width: 80rem;">
+                    <div class="card-header text-info bg-danger">
+                        <h2 class="font-weight-bold text-light">Comment {{comment.id}}</h2>
+                    </div>
+                    <div class="card-body text-info">
+                        <h5 class="card-title text-danger">Post Id: <span class="text-secondary">{{comment.postId}}</span></h5>
+                        <h5 class="card-title text-danger">Id: <span class="text-secondary">{{comment.id}}</span></h5>
+                        <h5 class="card-title text-danger">Name: <span class="text-secondary">{{comment.name}}</span></h5>
+                        <h5 class="card-title text-danger">Email: <span class="text-secondary">{{comment.email}}</span></h5>
+                        <h5 class="card-title text-danger">Body: <span class="text-secondary">{{comment.body}}</span></h5>
+                    </div>
+                </div>
+    </div>
+    
+    
+    
+    
+    
+    
